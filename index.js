@@ -9,8 +9,6 @@ require('dotenv').config();
 
 app.use(morganMiddleware);
 
-console.log('인입환경변수 확인:', process.env.NODE_ENV);
-
 app.get('/', (req, res) => {
   res.send('hello');
 });
