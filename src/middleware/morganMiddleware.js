@@ -1,4 +1,5 @@
 const morgan = require('morgan');
+require('dotenv').config();
 
 morgan.token('status', function (req, res) {
   let color;
@@ -16,8 +17,13 @@ morgan.token('request', function (req, res) {
   return 'Request_' + JSON.stringify(req.body);
 });
 
-const morganMiddleware = morgan(
-  "\x1b[42m:method\x1b[40m : | url_':url' | IP :remote-addr  | :request | Status-:status | 응답-:response-time ms (:res[content-length]줄)"
-);
+let morganMiddleware = '';
+if (process.env.NODE_ENV == 'dev') {
+  morganMiddleware = morgan('short');
+} else {
+  morganMiddleware = morgan(
+    "\x1b[42m:method\x1b[40m : | url_':url' | IP :remote-addr  | :request | Status-:status | 응답-:response-time ms (:res[content-length]줄)"
+  );
+}
 
 module.exports = morganMiddleware;
