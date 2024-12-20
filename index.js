@@ -1,5 +1,6 @@
 const express = require('express');
 const morganMiddleware = require('./src/middleware/morganMiddleware');
+const mainRouter = require('./src/mainRouter');
 
 const app = express();
 require('dotenv').config();
@@ -12,6 +13,8 @@ app.use(morganMiddleware);
 app.get('/', (req, res) => {
   res.send('hello');
 });
+
+app.use('/api', mainRouter);
 
 app.listen(process.env.mainPort, function () {
   console.log('서버열림');
