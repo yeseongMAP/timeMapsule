@@ -8,7 +8,7 @@ router.get('/', (req, res) => {
 
 router.use('/test', productRotuer);
 
-//err middleware
+//err middleware Ex) 대분류 Router 마다 적용 필요.
 router.use((err, req, res, next) => {
   console.log('MAIN_ROUTER_ERROR_MIDDLEWARE 입장');
 
