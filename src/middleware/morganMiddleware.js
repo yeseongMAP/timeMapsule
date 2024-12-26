@@ -22,7 +22,7 @@ if (process.env.NODE_ENV == 'dev') {
   morganMiddleware = morgan('short');
 } else {
   morganMiddleware = morgan(
-    "\x1b[42m:method\x1b[40m : | url_':url' | IP :remote-addr  | :request | Status-:status | 응답-:response-time ms (:res[content-length]줄)"
+    "\x1b[42m:method\x1b[40m : | url_':url' | IP :remote-addr  | :request | Status-:status | 응답-:response-time ms (:res[content-length]줄)\x1b[0m"
   );
 }
 
