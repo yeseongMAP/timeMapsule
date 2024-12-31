@@ -15,7 +15,7 @@ app.get('/', (req, res) => {
   res.send('hello');
 });
 
-app.use('/api', mainRouter);
+app.use('/router', mainRouter);
 
 app.listen(process.env.mainPort, function () {
   console.log('서버열림');
